@@ -47,7 +47,7 @@ export default function Navbar() {
           NEXA AI
         </Link>
 
-        <ul className="flex items-center gap-2 [&>li]:cursor-pointer">
+        <ul className="flex items-center gap-2 [&>li]:cursor-pointer [&>li]:dark:text-white [&>li]:text-black">
           <li>
             <Link
               href="/"

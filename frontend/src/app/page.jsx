@@ -1,11 +1,11 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import { GlobalIcons } from "@/components/icons";
 import Faq from "@/components/ui/pure/Faq";
 import { useTheme } from "@/hooks/useTheme";
 import MarketTicker from "@/components/ui/pure/MarketTicker";
 import Loader from "@/components/ui/pure/Loader";
-import { useNotification } from "@/hooks/useNotification";
 import PrimaryButton from "@/components/ui/global/custom/Buttons/PrimaryButton";
 import SecondaryButton from "@/components/ui/global/custom/Buttons/SecondaryButton";
 
@@ -79,18 +79,10 @@ const mindsBehind = [
 
 export default function Home() {
   const { theme } = useTheme();
-  const { showNotification } = useNotification();
-
-  const handleClick = () => {
-    showNotification("Falta agregar interacción a este botón.", "info");
-  };
 
   return (
     <main className="container mx-auto px-4 max-md:pt-4 pt-14 pb-8 max-md:pb-24 relative">
-      <div className="absolute size-[700px] aspect-square bg-gradient-premium dark:bg-gradient-basic opacity-10 blur-3xl -top-96 -left-96 z-0 rounded-full" />
-      <div className="absolute size-[700px] aspect-square bg-gradient-pro dark:bg-gradient-pro opacity-10 blur-3xl top-[20%] -right-[40%] z-0 rounded-full" />
-
-      <section className="flex items-center max-md:flex-col gap-4 lg:gap-10 max-md:mb-8 mb-20">
+      <section className="flex items-center max-md:flex-col gap-4 lg:gap-10 max-md:mb-8 mb-20 overflow-hidden">
         <div className="max-md:text-center min-h-[70dvh] w-full md:max-w-[85%] md:mx-auto grid place-content-center pb-32">
           <h1
             className={`font-black font-sans text-center text-xl mb-14 ${
@@ -119,7 +111,7 @@ export default function Home() {
       </section>
 
       <section className="mb-12">
-        <h1 className="text-lg text-center font-bold font-sans">
+        <h1 className="text-lg text-center font-bold font-sans text-black dark:text-white">
           Revolucionando el Trading en Mercados Sintéticos Globales
         </h1>
         <p className="dark:text-difuminate-text-dark text-difuminate-text-light text-sm text-center mt-2 block md:max-w-[70%] mx-auto">
@@ -137,7 +129,7 @@ export default function Home() {
                 className="border-dark-gray/25 dark:border-light-gray border rounded-md p-4 w-full relative overflow-hidden"
               >
                 <Icon className="size-12 text-secondary-color dark:text-primary-color" />
-                <h3 className="text-md font-semibold font-sans mb-2 mt-4">
+                <h3 className="text-md font-semibold font-sans mb-2 mt-4 text-black dark:text-white">
                   {benefit.title}
                 </h3>
                 <p className="dark:text-difuminate-text-dark text-difuminate-text-light text-sm">
